@@ -1,0 +1,159 @@
+﻿@model CadastroModel
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>
+    body {
+        background-color: #F2ECBE; /* Cor de fundo */
+        font-family: 'Inter', sans-serif;
+    }
+
+    .form {
+        background-color: #fff;
+        padding: 2rem;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+    }
+
+    .form-header {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+        .form-header h1 {
+            font-size: 2rem;
+            color: #333; /* Cor do título */
+        }
+
+        .form-header .login-button {
+            margin-top: 1rem;
+        }
+
+            .form-header .login-button a {
+                text-decoration: none;
+                color: #fff;
+            }
+
+                .form-header .login-button a:hover {
+                    color: #fff;
+                }
+
+    .input-box {
+        margin-bottom: 1rem;
+    }
+
+        .input-box label {
+            font-weight: 600;
+            color: #555;
+        }
+
+    .form-control {
+        border-radius: 5px;
+    }
+
+    .gender-title h6 {
+        margin-top: 1.5rem;
+    }
+
+    .gender-input label {
+        margin-left: 0.5rem;
+    }
+
+    .custom-enter-button {
+        background-color: #3498db;
+        border-color: #3498db;
+        color: #fff;
+    }
+
+        .custom-enter-button:hover {
+            background-color: #2980b9;
+        }
+
+    .custom-continue-button {
+        background-color: #3498db;
+        border-color: #3498db;
+        margin-top: 1rem;
+    }
+
+        .custom-continue-button a {
+            color: #fff;
+        }
+
+            .custom-continue-button a:hover {
+                text-decoration: none;
+            }
+
+        .custom-continue-button:hover {
+            background-color: #2980b9;
+        }
+
+    .footer {
+        margin-bottom: -5rem;
+    }
+
+    .form-bg-color {
+        background-color: #AED2FF;
+    }
+</style>
+
+<div class="container ">
+    <form asp-action="Cadastrar" asp-controller="Autenticacao" class="form w-50 form-bg-color" style="transform: translateX(50%);">
+        <div class="form-header">
+            <div class="title">
+                <h1>Login</h1>
+            </div>
+            <div class="login-button">
+                <button class="btn custom-enter-button"><a href="#">Entrar</a></button>
+            </div>
+        </div>
+
+        <div class="input-box">
+            <label for="firstname">Primeiro Nome</label>
+            <input asp-for="PrimeiroNome" type="text"  class="form-control" placeholder="Digite seu primeiro nome" required>
+        </div>
+
+        <div class="input-box">
+            <label for="lastname">Sobrenome</label>
+            <input asp-for="Sobrenome" type="text"  class="form-control" placeholder="Digite seu sobrenome" required>
+        </div>
+        <div class="input-box">
+            <label for="email">E-mail</label>
+            <input asp-for="Email" type="email"  class="form-control" placeholder="Digite seu e-mail" required>
+        </div>
+
+        <div class="input-box">
+            <label for="number">CPF</label>
+            <input asp-for="CPF"id="number"  class="form-control" placeholder="xxx.xxx.xxx-xx" required>
+        </div>
+
+        <div class="input-box">
+            <label for="password">Senha</label>
+            <input asp-for="Senha"  type="password"  class="form-control" placeholder="Digite sua senha" required>
+        </div>
+        @*<label for="cars">Choose a car:</label>
+
+        <select name="cars" id="cars">
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="mercedes">Mercedes</option>
+        <option value="audi">Audi</option>
+        </select>*@
+        <div class="continue-button">
+            <button type="submit" class="btn custom-continue-button">Continuar</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    // Adiciona uma função para formatar o CPF
+    document.getElementById("number").addEventListener("input", function () {
+        let cpf = this.value.replace(/\D/g, ""); // Remove tudo que não é número
+        if (cpf.length > 11) cpf = cpf.slice(0, 11); // Limita a 11 caracteres
+        cpf = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4"); // Formata o CPF
+        this.value = cpf;
+    });
+</script>
+
+
+
+

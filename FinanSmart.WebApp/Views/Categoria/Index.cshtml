@@ -1,0 +1,25 @@
+﻿@using FinanSmart.Dominio.Entities;
+@model IEnumerable<Categoria>
+
+<table class="table"
+	
+	<thead>
+		<tr>
+			<th>CategoriaID</th>
+			<th>CategoriaNome</th>
+			<th>categoriaDescricao</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach(var emp in Model)
+		{
+			<tr>
+				<td>@emp.CategoriaID</td>
+				<td>@emp.CategoriaNome</td>
+					<td>@emp.CategoriaDescricao</td>
+
+			</tr>
+		}
+	</tbody>
+
+</table>
