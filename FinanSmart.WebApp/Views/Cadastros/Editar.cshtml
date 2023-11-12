@@ -1,0 +1,46 @@
+﻿@using FinanSmart.Dominio.ValueObjects;
+@model Cadastro
+@{
+}
+<div class="container ">
+    <form method="post" asp-action="Editar" class="form w-50 form-bg-color" style="transform: translateX(50%);">
+        <input type="hidden" asp-for="ID" />
+        <div class="input-box">
+            <label for="firstname">Primeiro Nome</label>
+            <input asp-for="PrimeiroNome" type="text" class="form-control" placeholder="Digite seu primeiro nome" required>
+        </div>
+
+        <div class="input-box">
+            <label for="lastname">Sobrenome</label>
+            <input asp-for="Sobrenome" type="text" class="form-control" placeholder="Digite seu sobrenome" required>
+        </div>
+        <div class="input-box">
+            <label for="email">E-mail</label>
+            <input asp-for="Email" type="email" class="form-control" placeholder="Digite seu e-mail" required>
+        </div>
+
+        <div class="input-box">
+            <label for="number">CPF</label>
+            <input asp-for="CPF" id="number" class="form-control" placeholder="xxx.xxx.xxx-xx" required>
+        </div>
+
+        <div class="input-box">
+            <label for="password">Senha</label>
+            <input asp-for="Senha" type="text" class="form-control" placeholder="Digite sua senha" required>
+        </div>
+
+        <div class="continue-button">
+            <button type="submit" class="btn custom-continue-button">Salvar</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    // Adiciona uma função para formatar o CPF
+    document.getElementById("number").addEventListener("input", function () {
+        let cpf = this.value.replace(/\D/g, ""); // Remove tudo que não é número
+        if (cpf.length > 11) cpf = cpf.slice(0, 11); // Limita a 11 caracteres
+        cpf = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4"); // Formata o CPF
+        this.value = cpf;
+    });
+</script>

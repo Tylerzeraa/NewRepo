@@ -18,6 +18,21 @@ namespace FinanSmart.WebApp.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public IActionResult Editar(string id)
+        {
+            Cadastro cadastro = _cadastroRepository.GetCadastro(id);
+
+            return View(cadastro);
+        }
+
+        [HttpPost]
+        public IActionResult Editar(Cadastro cadastro)
+        {
+            _cadastroRepository.Editar(cadastro);
+
+            return RedirectToAction("Index");
+        }
         public async Task<IActionResult> Index()
         {
             List<Cadastro> cadastros = await _cadastroRepository.GetCadastros();
