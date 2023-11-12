@@ -9,6 +9,8 @@ namespace FinanSmart.Dominio.Interface.Repository
 {
     public interface ICadastroRepository
     {
+        public Task<List<Cadastro>> GetCadastros();
+        public void Excluir(string id);
         public void AdicionarCadastro(Cadastro cadastro);
     }
 }

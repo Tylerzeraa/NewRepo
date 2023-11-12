@@ -11,27 +11,32 @@ public class AutenticacaoController : Controller
     [HttpGet]
     public IActionResult Index()
     {
-        return View(new CadastroModel ());
+        if (HttpContext.Session.GetString("Usuario") != null)
+            return RedirectToAction("Index", "Home");
+
+        return View(new CadastroModel());
     }
 
     [HttpPost]
     public IActionResult Autenticar(UsuarioViewModel entidade)
     {
-        if (entidade.Autenticado())
+        if (true)
             return base.RedirectToAction("Index", "Home");
         else
             return base.RedirectToAction("Erro");
     }
 
     public IActionResult Cadastrar (CadastroModel Cadastro) {
-        Cadastro cad = new Cadastro();
-        cad.CPF = Cadastro.CPF;
-        cad.PrimeiroNome = Cadastro.PrimeiroNome;
-        cad.Sobrenome = Cadastro.Sobrenome;
-        cad.Senha = Cadastro.Senha;
-        cad.Email = Cadastro.Email;
+        Cadastro cad = new()
+        {
+            CPF = Cadastro.CPF,
+            PrimeiroNome = Cadastro.PrimeiroNome,
+            Sobrenome = Cadastro.Sobrenome,
+            Senha = Cadastro.Senha,
+            Email = Cadastro.Email
+        };
         _service.AdicionarCadastro(cad);
-        return View("../Home/Index");
+        return RedirectToAction("Index", "Autenticado");
     }
 
     [HttpGet]

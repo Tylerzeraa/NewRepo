@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FinanSmart.Dados\FinanSmart.Dados.csproj" />
     <ProjectReference Include="..\FinanSmart.Dominio\FinanSmart.Dominio.csproj" />
   </ItemGroup>
 

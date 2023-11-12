@@ -1,7 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using FinanSmart.Dominio.Interface.Repository;
+using Microsoft.AspNetCore.Mvc;
 
 public class AutenticadoController : Controller
 {
+    private readonly ILoginService _loginService;
+    public AutenticadoController(ILoginService loginService)
+    {
+        _loginService = loginService;
+    }
+
     [HttpGet]
     public IActionResult Index()
     {
@@ -11,10 +18,15 @@ public class AutenticadoController : Controller
     [HttpPost]
     public IActionResult Autenticar(UsuarioViewModel entidade)
     {
-        if (entidade.Autenticado())
-            return base.RedirectToAction("Index", "Home");
-        else
-            return base.RedirectToAction("Erro");
+        bool valido = _loginService.IsValid(entidade.Usuario, entidade.Senha);
+        Console.WriteLine(valido);
+        if (!valido)
+        {
+            return base.RedirectToAction("Index");
+        }
+
+        HttpContext.Session.SetString("Usuario", entidade.Usuario);
+        return base.RedirectToAction("Index", "Cadastros");
     }
 
     [HttpGet]

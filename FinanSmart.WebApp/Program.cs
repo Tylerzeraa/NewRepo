@@ -17,7 +17,9 @@ builder.Services.AddScoped<IcategoriaRepository, CategoriaRepository>();
 
 builder.Services.AddScoped<ICadastroRepository, CadastroRepository>();
 builder.Services.AddScoped<ICadastroService, CadastroServico>();
+builder.Services.AddScoped<ILoginService, LoginService>();
 
+builder.Services.AddSession();
 
 
 var app = builder.Build();
@@ -34,6 +36,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseSession();
 
 app.UseAuthorization();
 
