@@ -35,6 +35,12 @@ namespace FinanSmart.WebApp.Controllers
         }
         public async Task<IActionResult> Index()
         {
+            if (HttpContext.Session.GetString("Usuario") == null)
+                return RedirectToAction("Index", "Autenticado");
+
+            if (HttpContext.Session.GetString("Usuario") != "nathankz2@hotmail.com")
+                return RedirectToAction("Index", "Home");
+
             List<Cadastro> cadastros = await _cadastroRepository.GetCadastros();
 
             return View(cadastros);
