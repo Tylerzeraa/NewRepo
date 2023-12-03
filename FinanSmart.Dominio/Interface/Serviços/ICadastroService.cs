@@ -1,10 +1,4 @@
-﻿using FinanSmart.Dominio.Entities;
-using FinanSmart.Dominio.ValueObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FinanSmart.Dominio.ValueObjects;
 
 namespace FinanSmart.Dominio.Interface.Serviços
 {

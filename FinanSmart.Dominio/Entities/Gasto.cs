@@ -1,13 +1,6 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FinanSmart.Dominio.Entities
+﻿namespace FinanSmart.Dominio.Entities
 {
-	public class Gasto
+    public class Gasto
 	{
 		public int GastoId { get; set; }
 		public string Titulo { get; set; }

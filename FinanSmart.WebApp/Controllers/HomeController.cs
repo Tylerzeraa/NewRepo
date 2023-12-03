@@ -1,5 +1,4 @@
-﻿using FinanSmart.Dominio.Entities;
-using FinanSmart.Dominio.Interface.Serviços;
+﻿using FinanSmart.Dominio.Interface.Serviços;
 using FinanSmart.WebApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;

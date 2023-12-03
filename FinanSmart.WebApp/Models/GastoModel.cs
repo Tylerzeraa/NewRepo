@@ -2,7 +2,7 @@
 
 namespace FinanSmart.WebApp.Models
 {
-	public class GastoModel
+    public class GastoModel
 	{
         public int GastoId { get; set; }
         public string Titulo { get; set; }

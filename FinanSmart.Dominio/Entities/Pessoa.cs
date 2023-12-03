@@ -1,5 +1,4 @@
 ﻿using FinanSmart.Dominio.ValueObjects;
-using System;
 namespace FinanSmart.Dominio.Entities
 {
 

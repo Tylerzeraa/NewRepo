@@ -1,7 +1,4 @@
-﻿using System;
-
-
-namespace FinanSmart.Dominio.Entities
+﻿namespace FinanSmart.Dominio.Entities
 {
     public class UsuarioModel
     {

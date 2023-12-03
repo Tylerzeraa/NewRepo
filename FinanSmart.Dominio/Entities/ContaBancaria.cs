@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-namespace FinanSmart.Dominio.Entities
+﻿namespace FinanSmart.Dominio.Entities
 {
-public class ContaBancaria
+    public class ContaBancaria
 {
     public string NumeroConta { get; set; }
     public string TipoConta { get; set; }

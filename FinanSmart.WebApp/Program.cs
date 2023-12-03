@@ -3,7 +3,6 @@ using FinanSmart.Dados.Repositorios;
 using FinanSmart.Dominio.Interface.Repository;
 using FinanSmart.Dominio.Interface.Serviços;
 using FinanSmart.Servicos.Serviços;
-using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
