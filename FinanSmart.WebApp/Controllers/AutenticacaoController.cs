@@ -27,6 +27,9 @@ public class AutenticacaoController : Controller
     }
 
     public IActionResult Cadastrar (CadastroModel Cadastro) {
+        if (HttpContext.Session.GetString("Usuario") != "nathankz2@hotmail.com") 
+            return RedirectToAction("Index", "Home");
+
         Cadastro cad = new()
         {
             CPF = Cadastro.CPF,

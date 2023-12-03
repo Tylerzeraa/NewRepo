@@ -25,16 +25,23 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Pagina Inicial</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Gastos" asp-action="Index">Gastos</a>
                         </li>
+
+                        @{
+                            if (Context.Session.GetString("Usuario") != null)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Autenticacao" asp-action="Index">Cadastre-se</a>
+                                </li>
+                            }
+                        }
+                       
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Autenticacao" asp-action="Index">Autenticar</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Autenticado" asp-action="Index">Autenticado</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Autenticado" asp-action="Index">Logar</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Cadastros" asp-action="Index">Cadastros</a>
