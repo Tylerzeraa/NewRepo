@@ -27,8 +27,6 @@ public class AutenticacaoController : Controller
     }
 
     public IActionResult Cadastrar (CadastroModel Cadastro) {
-        if (HttpContext.Session.GetString("Usuario") != "nathankz2@hotmail.com") 
-            return RedirectToAction("Index", "Home");
 
         Cadastro cad = new()
         {
@@ -38,6 +36,7 @@ public class AutenticacaoController : Controller
             Senha = Cadastro.Senha,
             Email = Cadastro.Email
         };
+
         _service.AdicionarCadastro(cad);
         return RedirectToAction("Index", "Autenticado");
     }
