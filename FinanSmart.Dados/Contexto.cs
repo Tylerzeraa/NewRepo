@@ -16,6 +16,7 @@ namespace FinanSmart.Dados
     {
         public DbSet<Categoria> Categoria { get; set; }
         public DbSet<Cadastro> Cadastro { get; set; }
+        public DbSet<Gasto> Gasto { get; set; }
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
@@ -30,6 +31,7 @@ namespace FinanSmart.Dados
         {
             modelBuilder.ApplyConfiguration(new CategoriaConfiguration());
             modelBuilder.ApplyConfiguration(new CadastroConfiguration());
+            modelBuilder.ApplyConfiguration(new GastoConfiguration());
         }
 
     }

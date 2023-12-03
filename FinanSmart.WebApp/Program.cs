@@ -14,6 +14,7 @@ builder.Services.AddDbContext<Contexto>();
 builder.Services.AddScoped<ICategoriaServico, CategoriaServico>();
 builder.Services.AddScoped<IcategoriaRepository, CategoriaRepository>();
 
+builder.Services.AddScoped<IGastoRepository, GastosRepository>();
 
 builder.Services.AddScoped<ICadastroRepository, CadastroRepository>();
 builder.Services.AddScoped<ICadastroService, CadastroServico>();

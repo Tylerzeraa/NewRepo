@@ -1,0 +1,40 @@
+﻿@using FinanSmart.Dominio.Entities
+@model IEnumerable<Gasto>
+<div class="d-flex justify-content-center">
+       
+    <div class="m-5 w-75">
+        <a asp-action="Cadastrar" class="btn btn-primary">Cadastrar</a>
+      
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>GastoId</th>
+                    <th>Titulo</th>
+                    <th>Valor</th>
+                    <th>Data</th>
+                    <th>Categoria</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.GastoId</td>
+                        <td>@item.Titulo</td>
+                        <td>@item.Valor</td>
+                        <td>@item.Data</td>
+                        <td>@item.Categoria</td>
+                        <td>
+                            <a asp-action="Editar" asp-route-id="@item.GastoId" class="btn btn-primary">Editar</a>
+                            <a asp-action="Excluir" asp-route-id="@item.GastoId" class="btn btn-danger">Excluir</a>
+                        </td>
+                    </tr>
+                }
+        
+            </tbody>
+        </table>
+        <p>Quantidade de registros: @Model.Count()</p>
+        <p>Valor total: @Model.Sum(x => x.Valor)</p>
+    </div>
+</div>
