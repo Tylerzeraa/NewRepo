@@ -13,9 +13,6 @@ namespace FinanSmart.WebApp.Controllers
         }
         public IActionResult Index()
         {
-            if (HttpContext.Session.GetString("Usuario") != "nathankz2@hotmail.com")
-                return RedirectToAction("Index", "Home");
-
             return View(_gastoRepository.ListarGastos());
         }
 
