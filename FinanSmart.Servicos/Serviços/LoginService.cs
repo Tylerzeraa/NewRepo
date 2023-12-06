@@ -12,6 +12,11 @@ namespace FinanSmart.Servicos.Serviços
             _contexto = contexto;
         }
 
+        public Guid GetId(string email)
+        {
+            return _contexto.Cadastro.FirstOrDefault(x => x.Email == email)!.ID;
+        }
+
         public bool IsValid(string email, string password)
         {
             return _contexto.Cadastro.Any(x => x.Email == email && x.Senha == password);

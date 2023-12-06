@@ -19,13 +19,15 @@ public class AutenticadoController : Controller
     public IActionResult Autenticar(UsuarioViewModel entidade)
     {
         bool valido = _loginService.IsValid(entidade.Usuario, entidade.Senha);
-        Console.WriteLine(valido);
         if (!valido)
         {
             return base.RedirectToAction("Index");
         }
 
+        Guid id = _loginService.GetId(entidade.Usuario);
+
         HttpContext.Session.SetString("Usuario", entidade.Usuario);
+        HttpContext.Session.SetString("UsuarioId", id.ToString());
         return base.RedirectToAction("Index", "Cadastros");
     }
 

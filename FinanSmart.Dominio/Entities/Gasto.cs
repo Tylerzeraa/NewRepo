@@ -6,6 +6,7 @@
 		public string Titulo { get; set; }
 		public double Valor { get; set; }
 		public DateTime Data { get; set; }
+		public string UsuarioId { get; set; }
 		public CategoriaGasto Categoria { get; set; }
 	}
 

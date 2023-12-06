@@ -7,7 +7,7 @@ namespace FinanSmart.Dominio.Interface.Repository
         void CadastrarGasto(Gasto gasto);
         void EditarGasto(Gasto gasto);
         void ExcluirGasto(Gasto gasto);
-        List<Gasto> ListarGastos();
+        List<Gasto> ListarGastos(string usuarioId);
         Gasto BuscarGasto(int id);
     }
 }

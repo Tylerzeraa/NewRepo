@@ -13,7 +13,8 @@ namespace FinanSmart.WebApp.Controllers
         }
         public IActionResult Index()
         {
-            return View(_gastoRepository.ListarGastos());
+            string idUsuario = HttpContext.Session.GetString("UsuarioId");
+            return View(_gastoRepository.ListarGastos(idUsuario));
         }
 
         public IActionResult Cadastrar()
@@ -24,6 +25,8 @@ namespace FinanSmart.WebApp.Controllers
         [HttpPost]
         public IActionResult Cadastrar(Gasto gasto)
         {
+            string idUsuario = HttpContext.Session.GetString("UsuarioId");
+            gasto.UsuarioId = idUsuario;
             _gastoRepository.CadastrarGasto(gasto);
             return RedirectToAction("Index");
         }

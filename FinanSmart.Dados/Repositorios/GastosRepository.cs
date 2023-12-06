@@ -34,9 +34,9 @@ namespace FinanSmart.Dados.Repositorios
             ctx.SaveChanges();
         }
 
-        public List<Gasto> ListarGastos()
+        public List<Gasto> ListarGastos(string usuarioId)
         {
-            return ctx.Gasto.ToList();
+            return ctx.Gasto.Where(p => p.UsuarioId == usuarioId).ToList();
         }
     }
 }
